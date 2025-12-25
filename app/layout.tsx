@@ -3,6 +3,8 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
 import { dark } from "@clerk/themes";
+import Providers from "./providers";
+import { Toaster } from "sonner";
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
@@ -19,24 +21,26 @@ export default function RootLayout({
     <ClerkProvider appearance={{
       baseTheme: dark,
     }}>
-      <html lang="en">
-        <body
-          className={`${inter.className}`}
-        >
-          {/* <ThemeProvider
+      <Providers>
+        <html lang="en">
+          <body
+            className={`${inter.className}`}
+          >
+            {/* <ThemeProvider
           attribute="class"
           defaultTheme="dark"
           enableSystem
           disableTransitionOnChange> */}
 
-          <main className="min-h-screen ">
-            {children}
-          </main>
-          {/* <Toaster richColors /> */}
+            <main className="min-h-screen ">
+              {children}
+            </main>
+            <Toaster richColors />
 
-          {/* </ThemeProvider> */}
-        </body>
-      </html>
+            {/* </ThemeProvider> */}
+          </body>
+        </html>
+      </Providers>
     </ClerkProvider>
   );
 }
