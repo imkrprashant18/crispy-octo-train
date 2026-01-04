@@ -152,7 +152,7 @@ export default function OnboardingPage() {
 
         // ---------------- Doctor Form ----------------
         return (
-                <Card className="bg-gradient-to-br from-slate-800 via-slate-700 to-slate-900 border border-amber-200">
+                <Card className="bg-gradient-to-br from-slate-800 via-slate-700 to-slate-900 border border-amber-200 ">
                         <CardContent className="pt-6">
                                 <CardTitle className="text-white mb-4">
                                         Complete Your Doctor Profile
@@ -160,13 +160,13 @@ export default function OnboardingPage() {
 
                                 <form onSubmit={handleSubmit(onDoctorSubmit)} className="space-y-6">
                                         {/* Specialty */}
-                                        <div>
+                                        <div className="flex flex-col gap-2">
                                                 <Label>Medical Specialty</Label>
                                                 <Select
                                                         value={specialtyValue}
                                                         onValueChange={(v) => setValue("specialty", v)}
                                                 >
-                                                        <SelectTrigger>
+                                                        <SelectTrigger className="w-full">
                                                                 <SelectValue placeholder="Select specialty" />
                                                         </SelectTrigger>
                                                         <SelectContent>
@@ -185,7 +185,7 @@ export default function OnboardingPage() {
                                         </div>
 
                                         {/* Experience */}
-                                        <div>
+                                        <div className="flex flex-col gap-2">
                                                 <Label>Years of Experience</Label>
                                                 <Input
                                                         type="number"
@@ -194,13 +194,13 @@ export default function OnboardingPage() {
                                         </div>
 
                                         {/* Credential */}
-                                        <div>
+                                        <div className="flex flex-col gap-2">
                                                 <Label>Credential URL</Label>
                                                 <Input type="url" {...register("credentialUrl")} />
                                         </div>
 
                                         {/* Description */}
-                                        <div>
+                                        <div className="flex flex-col gap-2">
                                                 <Label>Description</Label>
                                                 <Textarea rows={4} {...register("description")} />
                                         </div>
